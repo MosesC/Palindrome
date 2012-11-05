@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package palindrome;
 import java.io.*;
 import java.util.LinkedList;
@@ -9,14 +6,23 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
         
-/**
- *
- * @author SirCharles
+/* @Author: Moses Charles Jr.
+ * 
+ * @Due Date:11/6/12
+ * 
+ * @Purpose: The purpose of this program is to read words from a file, push the
+ * characters of the words into a stack and a queue one by one, then compare 
+ * those characters to see if the total word is a palindrome.
+ * 
+ * @Data Structures: Stack and Queue
+ * 
+ * @Program usage: All the user has to do is supply an input file and the program
+ * will find an print the palindromes in the file
  */
 public class Palindrome {
     
     /**
-     * The isPalindrome method returns true if 
+     * The isPalindrome method returns true if the word is a palindrome
      * @param initWord
      * @return 
      */
@@ -24,22 +30,30 @@ public class Palindrome {
         Stack area1 = new Stack();                            //new stack
         Queue<Character> area2 = new LinkedList<Character>(); //new queue
         
-            String currWord = initWord.toLowerCase();//set a new string to the first, but lowercase
+            //set a new string to the first, but lowercase
+            String currWord = initWord.toLowerCase();
 
             //pushes the letters into a stack 1 by 1
             for(int i=0; i<currWord.length(); i++){
-                Character a = new Character(currWord.charAt(i));   //convert the char to a Char object (Symmetry) 
-                area1.push(a);                                     //push the object ot the top of the stack
+                //convert the char to a Char object (Symmetry) 
+                Character a = new Character(currWord.charAt(i));   
+                
+                //push the object ot the top of the stack
+                area1.push(a);                                     
             }
             
-            //places  the letters into a queue
+            //same operation as above, but for the queue
             for(int i=0; i<currWord.length(); i++){
-                Character a = new Character(currWord.charAt(i));   //convert the char to a Char object
-                area2.add(a);                                      //place the Char object into the Queue
+                Character a = new Character(currWord.charAt(i));   
+                area2.add(a);                                     
             }
             
+            //a boolean used to check if the characters in the stack and queue are equal
             boolean equalChars = true;
             
+            /*while the queue has letters and equalChars remains true,
+             *compare the stack and queue
+             */
             while(area2.isEmpty() == false && equalChars == true){
                 Character queueFront = (Character) area2.remove();
                 Character stackTop = (Character) area1.pop();
@@ -53,13 +67,14 @@ public class Palindrome {
             if(equalChars == true){
                 System.out.println(currWord);
             }
-            return equalChars;
+            
+            return equalChars;  //return true or false.
         } 
 
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner keyboard = new Scanner(System.in);  //takes user input
-        Scanner fileInput = null;                          //takes a file specified by user
+        Scanner fileInput = null;                   //takes a file specified by user
         File inFile;                                //handle of the input file
         
         try{
