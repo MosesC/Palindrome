@@ -1,0 +1,11 @@
+Author: Me
+Date: 11/5/2012
+Class: Java 3410
+
+Purpose:	The purpose of this program is to use Stacks and Queue's in the java 
+			library to check if the words in a file are palindrome's or not.
+			A palindrome is a word that is read the same backwards and forwards.
+			For example: otto, racecar, boob, poop, etc.
+		
+
+		
